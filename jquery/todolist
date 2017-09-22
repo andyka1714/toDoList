@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ToDoList</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<div class="content">
+		<h1>To Do List</h1>
+		<input type="text" id="input">
+		<input type="button" id="add" value="ADD">
+		<input type="button" id="finishedItems" value="Finished">
+		<input type="button" id="unfinishedItems" value="Unfinished">
+		<input type="button" id="showAll" value="ShowAll">
+		<div id="showBlock"></div>
+	</div>
+</body>
+<script>
+	var txtId = 1;
+
+	$("#add").click(function () {
+		var inputValue = $("#input").val();
+		var imgId = "check"+txtId;
+		var listId = "item"+txtId;
+		var contentId = "p"+ txtId;
+
+		$("#showBlock").append(
+			'<div id="item' + txtId + '" class="unfinished">\
+			<img src="image/unfinished.jpg" id="check'+txtId+'" class="unfinished">\
+			<p id="p'+txtId+'">'+txtId+'. '+inputValue+'</p>\
+			<input type="button" value="Delete" onclick="deltxt('+txtId+')">\
+			</div>');
+		txtId++;
+
+		$("#"+imgId).click(function() {
+			if($("#"+imgId).attr("class")=="unfinished"){
+				$("#"+imgId).attr("src","image/finished.jpg").removeClass("unfinished");
+				$("#"+listId).removeClass("unfinished");
+				$("#"+contentId).css("text-decoration","line-through").css("color","#707070");
+			}else{
+				$("#"+imgId).attr("src","image/unfinished.jpg").addClass("unfinished");
+				$("#"+listId).addClass("unfinished");
+				$("#"+contentId).css("text-decoration","underline").css("color","black");
+			};
+		});
+
+		$("#finishedItems").click(function(){
+				$('div[class="unfinished"]').hide();
+				$('div[class=""]').show();
+		});
+
+		$("#unfinishedItems").click(function(){
+				$('div[class=""]').hide();
+				$('div[class="unfinished"]').show();
+		});
+
+		$("#showAll").click(function(){
+				$("#showBlock > div").show();
+		});
+
+	});
+
+	
+
+	function deltxt(id) {
+		$("#item"+id).remove();
+	}
+
+	</script>
+</html>

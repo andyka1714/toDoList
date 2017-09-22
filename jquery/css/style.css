@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.content {
+  width: 70%;
+  margin: auto;
+  text-align: center; }
+  .content h1 {
+    font-size: 5vw;
+    margin: 1vw; }
+  .content input {
+    display: inline-block; }
+  .content #input {
+    width: 80%;
+    font-size: 2vw;
+    padding: 1vw;
+    margin-bottom: 2vw; }
+  .content #add {
+    width: 15%;
+    font-size: 2vw;
+    padding: 1vw; }
+  .content #finishedItems, .content #unfinishedItems, .content #showAll {
+    width: 33%;
+    font-size: 2vw;
+    padding: 1vw;
+    margin-bottom: 2vw; }
+  .content #showBlock div * {
+    display: inline-block;
+    text-align: left; }
+  .content #showBlock img {
+    width: 2.5vw;
+    height: 2.5vw; }
+  .content #showBlock p {
+    width: 80%;
+    font-size: 2.5vw;
+    text-decoration: underline; }
+  .content #showBlock input {
+    width: 15%;
+    font-size: 1.5vw;
+    padding: 0.5vw; }
+
+/*# sourceMappingURL=style.css.map */
