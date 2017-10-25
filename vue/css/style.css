@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.toDoList {
+  width: 70%;
+  margin: auto;
+  text-align: center; }
+  .toDoList h1 {
+    font-size: 5vw;
+    margin: 1vw; }
+  .toDoList input {
+    display: inline-block; }
+  .toDoList #input {
+    width: 80%;
+    font-size: 2vw;
+    padding: 1vw;
+    margin-bottom: 2vw; }
+  .toDoList #add {
+    width: 15%;
+    font-size: 2vw;
+    padding: 1vw; }
+  .toDoList #finishedItems, .toDoList #unfinishedItems, .toDoList #showAll {
+    width: 33%;
+    font-size: 2vw;
+    padding: 1vw;
+    margin-bottom: 2vw; }
+  .toDoList #showBlock ul li {
+    list-style-type: none; }
+    .toDoList #showBlock ul li input {
+      zoom: 2; }
+    .toDoList #showBlock ul li p {
+      text-align: left;
+      width: 80%;
+      font-size: 2.5vw;
+      text-decoration: underline; }
+    .toDoList #showBlock ul li button {
+      width: 15%;
+      font-size: 1.5vw;
+      padding: 0.5vw; }
+    .toDoList #showBlock ul li p, .toDoList #showBlock ul li input, .toDoList #showBlock ul li button {
+      display: inline-block; }
+  .toDoList #showBlock ul li.finished p {
+    text-decoration: line-through;
+    color: #707070; }
+  .toDoList #showBlock ul .hide {
+    display: none; }
+
+/*# sourceMappingURL=style.css.map */

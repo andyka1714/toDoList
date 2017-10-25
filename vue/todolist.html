@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ToDoList</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+</head>
+<body>
+	<div class="toDoList">
+		<h1>To Do List</h1>
+		<input type="text" id="input"  placeholder="Please enter your ToDos" v-model="newToDo">
+		<input type="button" id="add" value="ADD" @click="addToDo(newToDo)">
+		<input type="button" id="finishedItems" value="Finished" @click="showFinished()">
+		<input type="button" id="unfinishedItems" value="Unfinished" @click="showUnfinished()">
+		<input type="button" id="showAll" value="ShowAll" @click="showAll()">
+		<div id="showBlock">
+			<ul> 
+				<li v-for="todo in toDos" :class="{finished:todo.completed,hide:todo.view}">
+					<input type="checkbox" v-model="todo.completed">
+					<p>{{todo.content}}</p>
+					<button @click.prevent="removeToDo(todo)">Remove</button>
+					{{todo.view}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script>
+	var toDoList = new Vue({
+		el:'.toDoList',
+		data:{
+			toDos:[],
+			newToDo:''
+		},
+		methods:{
+			addToDo:function(todo){
+				this.toDos.push({content:todo,completed:false,view:false})
+			},
+			removeToDo:function(todo){
+				this.toDos.splice(this.toDos.indexOf(todo),1)
+			},
+			showFinished:function(){
+				var todoList = this.toDos;
+				for (let i =0; i<todoList.length; i++) {
+					if(todoList[i].completed == false){
+						todoList[i].view=true;
+					}else{
+						todoList[i].view=false;
+					}
+				}
+			},
+			showUnfinished:function(){
+				var todoList = this.toDos;
+				for (let i =0; i<todoList.length; i++) {
+					if(todoList[i].completed == true){
+						todoList[i].view=true;
+					}else{
+						todoList[i].view=false;
+					}
+				}
+			},
+			showAll:function(){
+				var todoList = this.toDos;
+				for (let i =0; i<todoList.length; i++) {
+						todoList[i].view=false;
+					}
+			}
+		}
+	})
+</script>
+</html>
